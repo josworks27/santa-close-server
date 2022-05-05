@@ -8,6 +8,7 @@ import com.santaclose.lib.entity.appUser.type.AppUserRole
 import com.santaclose.lib.entity.location.Location
 import com.santaclose.lib.entity.mountain.Mountain
 import com.santaclose.lib.entity.mountain.type.MountainManagement
+import com.santaclose.lib.entity.mountainRestaurant.MountainRestaurant
 import com.santaclose.lib.entity.mountainReview.MountainRating
 import com.santaclose.lib.entity.mountainReview.MountainReview
 import com.santaclose.lib.entity.mountainReview.type.MountainDifficulty
@@ -57,3 +58,6 @@ fun EntityManager.createMountainReview(
       appUser
     )
 ) = mountainReview.also { this.persist(it) }
+
+fun EntityManager.createMountainRestaurant(mountain: Mountain, restaurant: Restaurant) =
+  MountainRestaurant(mountain, restaurant).also { this.persist(it) }
