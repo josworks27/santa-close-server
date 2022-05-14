@@ -33,6 +33,7 @@ fun EntityManager.createAppUser(
 fun EntityManager.createRestaurant(
   appUser: AppUser,
   foodTypes: List<FoodType>,
+  location: Location = createLocation(),
   restaurant: Restaurant =
     Restaurant(
       "name",
@@ -47,7 +48,7 @@ fun EntityManager.createRestaurant(
         }
         .toMutableList(),
       appUser,
-      createLocation()
+      location
     )
 ) = restaurant.also { this.persist(it) }
 
