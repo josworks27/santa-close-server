@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull
 class RestaurantFoodType(
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "restaurant_id")
+  @field:NotNull
   var restaurant: Restaurant?,
   @Enumerated(EnumType.STRING) @field:NotNull var foodType: FoodType,
 ) : BaseEntity()
